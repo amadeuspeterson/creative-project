@@ -1,7 +1,7 @@
 <template>
-  <div id="app">
+  <div class="d-flex align-items-stretch">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
+      <router-link to="/">Home</router-link>
       <router-link to="/about">About</router-link>
     </div>
     <router-view/>
@@ -18,10 +18,16 @@
 }
 
 #nav {
-  padding: 30px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  background-color: #f00;
+  width: 15%;
+  height:
 }
 
 #nav a {
+  padding: 10px;
   font-weight: bold;
   color: #2c3e50;
 }
