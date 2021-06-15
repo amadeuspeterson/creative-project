@@ -1,9 +1,10 @@
 <template>
   <div class="profile">
     <div id="pic">
-      <img src="/">
+      <img src="favicon.ico">
     </div>
     <div id="info">
+
     </div>
   </div>
 </template>

@@ -1,107 +1,19 @@
 <template>
-  <sidebar-menu :menu="menu" />
+  <div id="app">
+    <div id="nav">
+      <img src="favicon.ico">
+      <router-link to="/"><i class="fas fa-home"></i></router-link>
+      <router-link to="/NBA.vue"><i class="fas fa-basketball-ball"></i></router-link>
+      <router-link to="/MLB.vue"><i class="fas fa-baseball-ball"></i></router-link>
+      <router-link to="/NFL.vue"><i class="fas fa-football-ball"></i></router-link>
+      <div class="profile">
+        <router-link to="/Profile.vue"><i class="fas fa-user"></i></router-link>
+      </div>
+    </div>
+    <router-view />
+  </div>
 </template>
 
-<script>
-import { SidebarMenu } from 'vue-sidebar-menu'
-export default {
-  components: {
-    SidebarMenu
-  },
-  props: {
-      // Sidebar menu (required)
-      menu: {
-        type: Array,
-        required: true
-      },
-
-      // Sidebar Collapse state
-      collapsed: {
-        type: Boolean,
-        default: false
-      },
-
-      // Sidebar width (expanded)
-      width: {
-        type: String,
-        default: '350px'
-      },
-
-      // Sidebar width (collapsed)
-      widthCollapsed: {
-        type: String,
-        default: '50px'
-      },
-
-      // Keep only one child opened at a time (first level only)
-      showOneChild: {
-        type: Boolean,
-        default: false
-      },
-
-      // Keep all child open
-      showChild: {
-        type: Boolean,
-        default: false
-      },
-
-      // Sidebar right to left
-      rtl: {
-        type: Boolean,
-        default: false
-      },
-
-      // Make sidebar relative to the parent (by default the sidebar is relative to the viewport)
-      relative: {
-        type: Boolean,
-        default: false
-      },
-
-      // Hide toggle collapse btn
-      hideToggle: {
-        type: Boolean,
-        default: false
-      },
-
-      // Sidebar theme (available themes: 'white-theme')
-      theme: {
-        type: String,
-        default: ''
-      },
-
-      // Disable hover on collapse mode
-      disableHover: {
-        type: Boolean,
-        default: false
-      }
-  },
-  return {
-                  menu: [
-                      {
-                          header: true,
-                          title: 'Main Navigation',
-                          hiddenOnCollapse: true
-                      },
-                      {
-                          href: '/',
-                          title: 'Dashboard',
-                          icon: 'fa fa-user'
-                      },
-                      {
-                          href: '/charts',
-                          title: 'Charts',
-                          icon: 'fa fa-chart-area',
-                          child: [
-                              {
-                                  href: '/charts/sublink',
-                                  title: 'Sub Link'
-                              }
-                          ]
-                      }
-                  ]
-              }
-}
-</script>
 <style>
 * { margin: 0 !important; }
 
@@ -111,16 +23,13 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-
 }
 
 #nav {
   padding: 30px;
-  width: 10%;
-  background-color: gray;
-  height: 100%;
+  width: 100%;
+  background-color: #f2f2f2;
   display: flex;
-  flex-direction: column;
   text-align: center;
 }
 
@@ -130,7 +39,19 @@ export default {
   color: #2c3e50;
 }
 
+#nav i {
+  padding: 30px;
+}
+
+#nav img {
+  max-height: 50px;
+}
+
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+
+.profile {
+    margin-left: auto;
 }
 </style>
