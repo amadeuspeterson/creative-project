@@ -15,14 +15,13 @@
 </template>
 
 <style>
-* { margin: 0 !important; }
+* { margin: 0; }
 
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
 }
 
 #nav {
@@ -45,6 +44,7 @@
 
 #nav img {
   max-height: 50px;
+  padding-right: 50px;
 }
 
 #nav a.router-link-exact-active {
@@ -53,5 +53,6 @@
 
 .profile {
     margin-left: auto;
+    padding-right: 120px;
 }
 </style>
