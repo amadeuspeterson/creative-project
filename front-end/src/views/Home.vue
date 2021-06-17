@@ -1,23 +1,17 @@
 <template>
   <div class="home">
-    <div class="content">
+    <div id="scores">
       <h1>Creative Project</h1>
-      <h3>NBA</h3>
-      <div class="NBA">
-        <div id="nbaScores">
-        </div>
+      <h3>Scores</h3>
+      <div id="nbaScores">
       </div>
       <hr>
-      <h3>MLB</h3>
-      <div class="MLB">
-        <div id="mlbScores">
-        </div>
+      <h3>Stats</h3>
+      <div id="playerStats">
       </div>
       <hr>
-      <div class="NFL">
-        <h3>NFL</h3>
-        <div id="nflScores">
-        </div>
+      <h3>NFL</h3>
+      <div id="nflScores">
       </div>
       <hr>
     </div>
@@ -29,7 +23,7 @@
 export default {
   name: 'Home',
   created() {
-    fetch("https://api-nba-v1.p.rapidapi.com/games/date/2021-06-16", {
+    fetch("https://api-nba-v1.p.rapidapi.com/games/date/2021-02-17", {
       "method": "GET",
       "headers": {
         "x-rapidapi-key": "62bb312edemsh27d1c3c540c9f92p18fc85jsn8602f7f6f0db",
@@ -42,50 +36,73 @@ export default {
       console.log(json);
       let results = "";
       for (let i=0; i < json.api.games.length; i++) {
-        results += '<div class="nbaElement"><img src="' + json.api.games[i].vTeam.logo + '">';
+        results += '<div class="nbaElement"><div class="teams"><img src="' + json.api.games[i].vTeam.logo + '">';
         results += "<h2>" + json.api.games[i].vTeam.shortName + "</h2>";
         results += '<img src="' + json.api.games[i].hTeam.logo + '">';
-        results += "<h2>" + json.api.games[i].hTeam.shortName + "</h2></div>";
+        results += "<h2>" + json.api.games[i].hTeam.shortName + "</h2>";
+        if (json.api.games[i].statusGame == "Finished") {
+          results += "<p>Final</p></div>"
+        } else {
+          results += "<p>NBA</p></div>";
+        }
+        if (json.api.games[i].vTeam.score.points == "" && json.api.games[i].hTeam.score.points == "") {
+        results += '<div class="score"><h2>0</h2><br><br>';
+        results += "<h2>0</h2></div></div>";
+        }
+        results += '<div class="score"><h2>' + json.api.games[i].vTeam.score.points + '</h2><br><br>';
+        results += "<h2>" + json.api.games[i].hTeam.score.points + "</h2></div></div>";
         document.getElementById("nbaScores").innerHTML = results;
       }
     });
-    /*.catch(err => {
-      console.error(err);
-    });*/
   },
 }
 </script>
 
-<style scoped>
+<style>
 .home {
   background-color: #42b983;
 }
 
-.content {
-  background-color: #ffffff;
+#scores {
+  display: block;
+  background-color: white;
   width: 94%;
+  min-height: 700px;
   margin: auto;
-}
-
-.NBA {
-  height: 150px;
 }
 
 #nbaScores {
   display: flex;
+  flex-wrap: wrap;
   margin: 30px;
   font-size: 10px;
-
 }
 
 .nbaElement {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  max-width: 200px;
+  align-items: flex-start;
+  min-width: 200px;
+  margin: 20px;
+  padding: 20px;
   border: black 2px solid;
-  margin: 10px;
-  padding: 10px;
+  justify-content: space-between;
 }
 
+.nbaElement img {
+  max-width: 20px
+}
+
+.teams {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.score {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
 </style>
