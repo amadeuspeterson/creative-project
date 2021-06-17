@@ -2,27 +2,27 @@
 <div class="signin">
   <div class="signinBox">
     <form class="pure-form">
-      <fieldset>
-        <legend>Register/Login</legend>
+    <div id="pic">
+      <img src="favicon.ico">
+    </div>
+      <div class="combinedBox">
         <div class="register">
+          <legend>Register</legend>
           <input placeholder="first name" v-model="firstName">
-          <input placeholder="last name" v-model="lastName">
+          <input placeholder="favorite number" v-model="favoriteNumber">
           <input placeholder="username" v-model="username">
           <input type="password" placeholder="password" v-model="password">
-          <fieldset>
-            <button type="submit" class="pure-button pure-button-primary" @click.prevent="register">Register</button>
-          </fieldset>
+          <button type="submit" class="pure-button pure-button-primary" @click.prevent="register">Register</button>
           <p v-if="error" class="error">{{error}}</p>
         </div>
         <div class="login">
+          <legend>Login</legend>
           <input placeholder="username" v-model="usernameLogin">
           <input type="password" placeholder="password" v-model="passwordLogin">
-          <fieldset>
-            <button type="submit" class="pure-button pure-button-primary" @click.prevent="login">Login</button>
-          </fieldset>
+          <button type="submit" class="pure-button pure-button-primary" @click.prevent="login">Login</button>
           <p v-if="errorLogin" class="error">{{errorLogin}}</p>
         </div>
-      </fieldset>
+      </div>
     </form>
   </div>
 </div>
@@ -31,11 +31,11 @@
 <script>
 import axios from 'axios';
 export default {
-  name: 'HomePage',
+  name: 'Login',
   data() {
     return {
       firstName: '',
-      lastName: '',
+      favoriteNumber: '',
       username: '',
       password: '',
       usernameLogin: '',
@@ -48,12 +48,12 @@ export default {
     async register() {
       this.error = '';
       this.errorLogin = '';
-      if (!this.firstName || !this.lastName || !this.username || !this.password)
+      if (!this.firstName || !this.favoriteNumber || !this.username || !this.password)
         return;
       try {
         let response = await axios.post('/api/users', {
           firstName: this.firstName,
-          lastName: this.lastName,
+          favoriteNumber: this.favoriteNumber,
           username: this.username,
           password: this.password,
         });
@@ -84,6 +84,11 @@ export default {
 </script>
 
 <style scoped>
+template {
+  background-image: 'url(favicon.ico)';
+  backgroundRepeat: "no-repeat";
+  backgroundSize: 100% auto;
+}
 .signin {
   padding: 120px;
   display: flex;
@@ -94,22 +99,36 @@ export default {
   text-align: center;
 }
 
-.signin form {
-  font-size: 14px;
+.signin form legend {
+  font-size: 28px;
+  font-family: cursive;
 }
 
-.signin form legend {
-  font-size: 20px;
+.combinedBox {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .login {
+  background-color: #f2f2f2;
+  border: black 5px solid;
+}
 
+.register {
+  background-color: #42b983;
+  border: black 5px solid;
 }
 
 input {
-  margin: 10px;
+  margin: 20px;
   display: flex;
   flex-direction: column;
+  font-size: 20px;
+}
+
+button {
+  margin: 10px;
 }
 
 .error {
