@@ -3,9 +3,11 @@
     <div id="nav">
       <img src="favicon.ico">
       <router-link to="/"><i class="fas fa-home"></i></router-link>
-      <router-link to="/Favorite.vue"><i class="fa fa-star"></i></router-link>
+      <router-link to="/Favorites.vue"><i class="fa fa-star"></i></router-link>
     </div>
-    <router-view />
+    <div id="page">
+      <router-view />
+    </div>
   </div>
 </template>
 
@@ -17,6 +19,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
+  background-color: #42b983;
 }
 
 #nav {
@@ -25,6 +28,14 @@
   background-color: #f2f2f2;
   display: flex;
   text-align: center;
+}
+
+#page {
+  display: block;
+  background-color: white;
+  width: 94%;
+  min-height: 700px;
+  margin: auto;
 }
 
 #nav a {
