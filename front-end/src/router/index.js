@@ -1,9 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import NBA from '../views/NBA.vue'
-import MLB from '../views/MLB.vue'
-import NFL from '../views/NFL.vue'
+import Profile from '../views/Profile.vue'
 
 Vue.use(VueRouter)
 
@@ -14,19 +12,9 @@ const routes = [
     component: Home
   },
   {
-    path: '/NBA.vue',
-    name: 'NBA',
-    component: NBA
-  },
-  {
-    path: '/MLB.vue',
-    name: 'MLB',
-    component: MLB
-  },
-  {
-    path: '/NFL.vue',
-    name: 'NFL',
-    component: NFL
+    path: '/Profile.vue',
+    name: 'Profile',
+    component: Profile
   }
 ]
 

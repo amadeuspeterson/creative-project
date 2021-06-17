@@ -11,11 +11,6 @@
 
 <script>
 export default{
-  data() {
-    firstName: '',
-    lastName: '',
-    email: '',
-    favTeam: '',
-  }
+
 }
 </script>
