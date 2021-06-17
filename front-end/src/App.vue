@@ -3,12 +3,7 @@
     <div id="nav">
       <img src="favicon.ico">
       <router-link to="/"><i class="fas fa-home"></i></router-link>
-      <router-link to="/NBA.vue"><i class="fas fa-basketball-ball"></i></router-link>
-      <router-link to="/MLB.vue"><i class="fas fa-baseball-ball"></i></router-link>
-      <router-link to="/NFL.vue"><i class="fas fa-football-ball"></i></router-link>
-      <div class="profile">
-        <router-link to="/Profile.vue"><i class="fas fa-user"></i></router-link>
-      </div>
+      <router-link to="/Favorite.vue"><i class="fa fa-star"></i></router-link>
     </div>
     <router-view />
   </div>
@@ -49,10 +44,5 @@
 
 #nav a.router-link-exact-active {
   color: #42b983;
-}
-
-.profile {
-    margin-left: auto;
-    padding-right: 120px;
 }
 </style>
