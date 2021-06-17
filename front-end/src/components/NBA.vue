@@ -56,23 +56,12 @@ export default {
 </script>
 
 <style>
-.nba {
-  background-color: #42b983;
-}
-
-#scores {
-  display: block;
-  background-color: white;
-  width: 94%;
-  min-height: 700px;
-  margin: auto;
-}
-
 #nbaScores {
   display: flex;
   flex-wrap: wrap;
   margin: 30px;
   font-size: 10px;
+  justify-content: center;
 }
 
 .nbaElement {
@@ -80,7 +69,6 @@ export default {
   flex-wrap: wrap;
   flex-direction: row;
   align-items: flex-start;
-  min-width: 200px;
   margin: 20px;
   padding: 20px;
   border: black 2px solid;
@@ -115,5 +103,26 @@ export default {
 #fanReactions button {
   float: right;
   margin-right: 5%;
+}
+
+/* view on large screens */
+@media only screen and (min-width: 1024px) {
+  .nbaElement {
+    min-width: 25%;
+  }
+}
+
+/* view on medium-sized screens */
+@media only screen and (max-width: 1200px) and (min-width: 1000px) {
+  .nbaElement {
+    min-width: 40%;
+  }
+}
+
+/* view on small screens */
+@media only screen and (max-width: 1000px) and (min-width: 540px) {
+  .nbaElement {
+    min-width: 85%;
+  }
 }
 </style>
