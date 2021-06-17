@@ -84,11 +84,10 @@ export default {
 </script>
 
 <style scoped>
-template {
-  background-image: 'url(favicon.ico)';
-  backgroundRepeat: "no-repeat";
-  backgroundSize: 100% auto;
+#pic {
+  maring: auto;
 }
+
 .signin {
   padding: 120px;
   display: flex;
@@ -106,7 +105,6 @@ template {
 
 .combinedBox {
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
 }
 
@@ -139,5 +137,19 @@ button {
   font-size: 10px;
   background-color: #d9534f;
   color: #fff;
+}
+
+/* view on large screens */
+@media only screen and (min-width: 800px) {
+  .combinedBox {
+    flex-direction: row;
+  }
+}
+
+/* view on small screens */
+@media only screen and (max-width: 800px) and (min-width: 540px) {
+  .combinedBox {
+    flex-direction: column;
+  }
 }
 </style>
