@@ -12,7 +12,7 @@ const router = express.Router();
 // salt and hash the password!
 const userSchema = new mongoose.Schema({
   firstName: String,
-  favNumber: String,
+  lastName: String,
   username: String,
   password: String,
 });
@@ -104,7 +104,7 @@ router.post('/', async (req, res) => {
   // Make sure that the form coming from the browser includes all required fields,
   // otherwise return an error. A 400 error means the request was
   // malformed.
-  if (!req.body.firstName || !req.body.favNumber || !req.body.username || !req.body.password)
+  if (!req.body.firstName || !req.body.lastName || !req.body.username || !req.body.password)
     return res.status(400).send({
       message: "Please enter your first name, favorite number, username and password"
     });
@@ -124,7 +124,7 @@ router.post('/', async (req, res) => {
     // create a new user and save it to the database
     const user = new User({
       firstName: req.body.firstName,
-      favNumber: req.body.favNumber,
+      lastName: req.body.lastName,
       username: req.body.username,
       password: req.body.password
     });
