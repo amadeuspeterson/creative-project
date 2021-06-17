@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import Profile from '../views/Profile.vue'
+import Favorites from '../views/Favorites.vue'
 
 Vue.use(VueRouter)
 
@@ -12,9 +12,9 @@ const routes = [
     component: Home
   },
   {
-    path: '/Profile.vue',
-    name: 'Profile',
-    component: Profile
+    path: '/Favorites.vue',
+    name: 'Favorites',
+    component: Favorites
   }
 ]
 
