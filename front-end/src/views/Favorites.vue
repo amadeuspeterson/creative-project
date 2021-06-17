@@ -53,7 +53,6 @@ export default {
   background-color: #f2f2f2;
   height: 200px;
   width: 200px;
-  margin: 30px;
   border-radius: 50%;
 }
 
