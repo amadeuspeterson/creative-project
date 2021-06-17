@@ -1,5 +1,5 @@
 <template>
-  <div class="profile">
+  <div class="favorites">
     <div id="pic">
       <img src="favicon.ico">
     </div>
@@ -11,6 +11,6 @@
 
 <script>
 export default{
-
+  name: 'Favorites'
 }
 </script>
