@@ -6,14 +6,12 @@
       <div id="nbaScores">
       </div>
       <hr>
-      <h3>Stats</h3>
-      <div id="playerStats">
+      <h3>Fan Reactions</h3>
+      <div id="fanReactions">
+        <textarea placeholder="React Here"></textarea>
+        <br>
+        <button type="button" style="float: right;">Submit</button>
       </div>
-      <hr>
-      <h3>NFL</h3>
-      <div id="nflScores">
-      </div>
-      <hr>
     </div>
   </div>
 </template>
@@ -104,5 +102,15 @@ export default {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
+}
+
+#fanReactions textarea {
+  width: 90%;
+  margin: auto;
+}
+
+#fanReactions button {
+  float: right;
+  margin-right: 5%;
 }
 </style>
