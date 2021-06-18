@@ -9,10 +9,11 @@
         <div class="register">
           <legend>Register</legend>
           <input placeholder="first name" v-model="firstName">
-          <input placeholder="favorite number" v-model="favoriteNumber">
+          <input placeholder="last name" v-model="lastName">
           <input placeholder="username" v-model="username">
           <input type="password" placeholder="password" v-model="password">
           <button type="submit" class="pure-button pure-button-primary" @click.prevent="register">Register</button>
+          <br>
           <p v-if="error" class="error">{{error}}</p>
         </div>
         <div class="login">
@@ -20,6 +21,7 @@
           <input placeholder="username" v-model="usernameLogin">
           <input type="password" placeholder="password" v-model="passwordLogin">
           <button type="submit" class="pure-button pure-button-primary" @click.prevent="login">Login</button>
+          <br>
           <p v-if="errorLogin" class="error">{{errorLogin}}</p>
         </div>
       </div>
@@ -35,7 +37,7 @@ export default {
   data() {
     return {
       firstName: '',
-      favoriteNumber: '',
+      lastName: '',
       username: '',
       password: '',
       usernameLogin: '',
@@ -127,6 +129,7 @@ input {
 
 button {
   margin: 10px;
+  flex-direction: column;
 }
 
 .error {
