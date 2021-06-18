@@ -10,6 +10,7 @@
     </div>
     <div id="footer">
       <a href="https://github.com/amadeuspeterson/creative-project">GitHub</a>
+      <p>32 hours</p>
     </div>
   </div>
 </template>
