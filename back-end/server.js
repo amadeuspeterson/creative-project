@@ -28,8 +28,8 @@ app.use(cookieSession({
 
 
 
-//const profile = require("./profile.js");
-//app.use("/api/users", profile.routes);
+const profile = require("./profile.js");
+app.use("/api/profile", profile.routes);
 
 const users = require("./users.js");
 app.use("/api/users", users.routes);
