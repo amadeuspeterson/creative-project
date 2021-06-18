@@ -8,22 +8,12 @@
       <div class="info">
         <p>First Name: </p>
         <h3>Amadeus</h3>
-        <p>Favorite Number: </p>
-        <h3>3</h3>
+        <p>Last Name: </p>
+        <h3>Peterson</h3>
         <p>Username: </p>
         <h3>amadeuspeterson</h3>
         <p>Password: </p>
-        <h3>Moneyball3</h3>
-      </div>
-      <div class="addTeam">
-        <h3>Add Favorite Team</h3>
-        <form>
-          <input type="text" placeholder="Favorite Team">
-          <button type="button">Submit</button>
-        </form>
-        <h3>My Favorite Teams</h3>
-        <!--list of favorite teams-->
-        <p></p>
+        <h3>Password123</h3>
       </div>
     </div>
   </div>
@@ -62,11 +52,5 @@ export default {
   flex-direction: column;
   justify-content: space-between;
   height: 300px;
-}
-
-#1 {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
 }
 </style>
