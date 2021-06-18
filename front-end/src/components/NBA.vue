@@ -7,18 +7,38 @@
       </div>
       <h3>Fan Reactions</h3>
       <div id="fanReactions">
-        <textarea placeholder="React Here"></textarea>
+        <textarea id="Reaction" v-model="reaction" placeholder="React Here"></textarea>
         <br>
-        <button type="button" style="float: right;">Submit</button>
+        <button type="button" style="float: right;" @click.prevent="post">Submit</button>
+      </div>
+      <div id="comments">
+        <div class="message">
+          <p></p>
+          <h3></h3>
+        </div>
+        <div class="buttons">
+          <button type="button" @click.prevent="edit">Edit</button>
+          <button type="button">Delete</button>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-//import moment from 'moment'
+import axios from 'axios'
 export default {
   name: 'NBA',
+  data() {
+    return {
+      firstName: "",
+      lastName: "",
+      username: "",
+      reaction: "",
+      addItem: null,
+      items: []
+    }
+  },
   created() {
     fetch("https://api-nba-v1.p.rapidapi.com/games/date/2021-02-17", {
       "method": "GET",
@@ -52,6 +72,35 @@ export default {
       }
     });
   },
+  methods: {
+    async getItems() {
+      try {
+        let response = await axios.get("/api/profile");
+        this.items = response.data;
+        return true;
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    async edit() {
+
+    },
+    async delete() {
+
+    },
+    async post() {
+      try {
+        let response = await axios.post('/api/profile', {
+          firstName: this.$root.$data.user.firstName,
+          lastName: this.$root.$data.user.lastName,
+          reaction: this.reaction
+        });
+        this.addItem = response.data;
+      } catch (error) {
+        console.log(error)
+      }
+    },
+  }
 }
 </script>
 
@@ -103,6 +152,16 @@ export default {
 #fanReactions button {
   float: right;
   margin-right: 5%;
+}
+
+#comments {
+  margin: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #f2f2f2;
+  min-height: 100px;
+  width: 20%;
 }
 
 /* view on large screens */
