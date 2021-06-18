@@ -12,9 +12,9 @@ const routes = [
     component: Home
   },
   {
-    path: '/Favorites.vue',
-    name: 'Favorites',
-    component: Favorites
+    path: '/Profile.vue',
+    name: 'Profile',
+    component: Profile
   }
 ]
 
