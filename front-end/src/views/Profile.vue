@@ -1,5 +1,6 @@
 <template>
   <div class="profile">
+    <a @click="logout"><i class="fas fa-sign-out-alt"></i></a>
     <h2>My Profile</h2>
     <div id="myprofile">
       <div id="userPic">
@@ -18,6 +19,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   name: 'Profile',
   data() {
@@ -27,6 +29,16 @@ export default {
       username: this.$root.$data.user.username
     }
   },
+  methods: {
+    async logout() {
+      try {
+        await axios.delete("/api/users");
+        this.$root.$data.user = null;
+      } catch (error) {
+        this.$root.$data.user = null;
+      }
+    },
+  }
 }
 </script>
 
