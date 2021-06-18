@@ -1,19 +1,17 @@
 <template>
-  <div class="favorites">
+  <div class="profile">
     <h2>My Profile</h2>
-    <div id="profile">
+    <div id="myprofile">
       <div id="userPic">
         <i class="fas fa-user fa-10x"></i>
       </div>
       <div class="info">
         <p>First Name: </p>
-        <h3>Amadeus</h3>
+        <h3>{{firstName}}</h3>
         <p>Last Name: </p>
-        <h3>Peterson</h3>
+        <h3>{{lastName}}</h3>
         <p>Username: </p>
-        <h3>amadeuspeterson</h3>
-        <p>Password: </p>
-        <h3>Password123</h3>
+        <h3>{{username}}</h3>
       </div>
     </div>
   </div>
@@ -21,17 +19,24 @@
 
 <script>
 export default {
-  name: 'Favorites',
+  name: 'Profile',
+  data() {
+    return {
+      firstName: this.$root.$data.user.firstName,
+      lastName: this.$root.$data.user.lastName,
+      username: this.$root.$data.user.username
+    }
+  },
 }
 </script>
 
 <style scoped>
-.favorites {
+.profile {
   width: 90%;
   margin: auto;
 }
 
-#profile {
+#myprofile {
   padding: 10px;
   display: flex;
   flex-wrap: wrap;
