@@ -8,6 +8,9 @@
     <div id="page">
       <router-view />
     </div>
+    <div id="footer">
+      <a href="https://github.com/amadeuspeterson/creative-project">GitHub</a>
+    </div>
   </div>
 </template>
 
@@ -55,5 +58,10 @@
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+
+#footer {
+  align-items: center;
+  background: #f2f2f2;
 }
 </style>
