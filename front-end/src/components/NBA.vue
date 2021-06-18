@@ -1,6 +1,7 @@
 <template>
   <div class="nba">
     <div id="scores">
+      <a @click="logout"><i class="fas fa-sign-out-alt"></i></a>
       <h1>Creative Project</h1>
       <h3>Scores</h3>
       <div id="nbaScores">
@@ -13,12 +14,8 @@
       </div>
       <div id="comments">
         <div class="message">
-          <p></p>
-          <h3></h3>
-        </div>
-        <div class="buttons">
-          <button type="button" @click.prevent="edit">Edit</button>
-          <button type="button">Delete</button>
+          <p>Amadeus Peterson</p>
+          <h3>Donovan Mitchell is on Fire!</h3>
         </div>
       </div>
     </div>
@@ -73,6 +70,14 @@ export default {
     });
   },
   methods: {
+    async logout() {
+      try {
+        await axios.delete("/api/users");
+        this.$root.$data.user = null;
+      } catch (error) {
+        this.$root.$data.user = null;
+      }
+    },
     async getItems() {
       try {
         let response = await axios.get("/api/profile");
@@ -81,12 +86,6 @@ export default {
       } catch (error) {
         console.log(error);
       }
-    },
-    async edit() {
-
-    },
-    async delete() {
-
     },
     async post() {
       try {
